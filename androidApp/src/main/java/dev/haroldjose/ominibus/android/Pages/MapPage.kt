@@ -3,11 +3,13 @@ package dev.haroldjose.ominibus.android.Pages
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import dev.haroldjose.ominibus.android.Components.TestView
 import dev.haroldjose.ominibus.android.Pages.ui.theme.OminibusTheme
 
 class MapPage : ComponentActivity() {
@@ -26,7 +28,10 @@ class MapPage : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+    Column {
+        Text(text = "Hello $name!")
+        TestView("teste")
+    }
 }
 
 @Preview(showBackground = true)
