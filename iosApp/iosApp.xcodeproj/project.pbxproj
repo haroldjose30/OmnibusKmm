@@ -8,14 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2152FB032600AC8F00CF470E /* iOSApp.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		52A04047263F392700D67BF6 /* AnnotatedItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A04046263F392700D67BF6 /* AnnotatedItem.swift */; };
+		52A0404B263F680100D67BF6 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0404A263F680100D67BF6 /* AnnotationView.swift */; };
+		52A0404D263F936500D67BF6 /* GetInPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0404C263F936500D67BF6 /* GetInPage.swift */; };
+		52A0404F263FA1C800D67BF6 /* FloatActionButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52A0404E263FA1C800D67BF6 /* FloatActionButtonView.swift */; };
+		7555FF83242A565900829871 /* MapPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* MapPage.swift */; };
 		FC7524F4C8C5BA6DD7B839AE /* Pods_iosApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1EF1275B9490B8B490EC694 /* Pods_iosApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
+		52A04046263F392700D67BF6 /* AnnotatedItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotatedItem.swift; sourceTree = "<group>"; };
+		52A0404A263F680100D67BF6 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		52A0404C263F936500D67BF6 /* GetInPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetInPage.swift; sourceTree = "<group>"; };
+		52A0404E263FA1C800D67BF6 /* FloatActionButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatActionButtonView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* iosApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iosApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7555FF82242A565900829871 /* MapPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPage.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5060AE61111F691B4C1B57 /* Pods-iosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.debug.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		C4857174253099145CF5EEE7 /* Pods-iosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosApp.release.xcconfig"; path = "Target Support Files/Pods-iosApp/Pods-iosApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -42,6 +50,32 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		52A04045263F391500D67BF6 /* moveToShared */ = {
+			isa = PBXGroup;
+			children = (
+				52A04046263F392700D67BF6 /* AnnotatedItem.swift */,
+			);
+			path = moveToShared;
+			sourceTree = "<group>";
+		};
+		52A04048263F5C9E00D67BF6 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				7555FF82242A565900829871 /* MapPage.swift */,
+				52A0404C263F936500D67BF6 /* GetInPage.swift */,
+			);
+			path = Pages;
+			sourceTree = "<group>";
+		};
+		52A04049263F67C900D67BF6 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				52A0404A263F680100D67BF6 /* AnnotationView.swift */,
+				52A0404E263FA1C800D67BF6 /* FloatActionButtonView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -63,7 +97,9 @@
 		7555FF7D242A565900829871 /* iosApp */ = {
 			isa = PBXGroup;
 			children = (
-				7555FF82242A565900829871 /* ContentView.swift */,
+				52A04049263F67C900D67BF6 /* Components */,
+				52A04048263F5C9E00D67BF6 /* Pages */,
+				52A04045263F391500D67BF6 /* moveToShared */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 			);
@@ -174,7 +210,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				52A0404D263F936500D67BF6 /* GetInPage.swift in Sources */,
+				52A0404B263F680100D67BF6 /* AnnotationView.swift in Sources */,
+				52A0404F263FA1C800D67BF6 /* FloatActionButtonView.swift in Sources */,
+				52A04047263F392700D67BF6 /* AnnotatedItem.swift in Sources */,
+				7555FF83242A565900829871 /* MapPage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
