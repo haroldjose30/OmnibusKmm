@@ -8,6 +8,7 @@ plugins {
 }
 
 val composeVersion = properties["version.compose"] as String
+val kotlinVersion = properties["version.kotlin"] as String
 
 android {
     compileSdkVersion((properties["android.compileSdk"] as String).toInt())
@@ -81,7 +82,7 @@ android {
 
     composeOptions {
         kotlinCompilerExtensionVersion = composeVersion
-        kotlinCompilerVersion = "1.4.32"
+        kotlinCompilerVersion = kotlinVersion
     }
 }
 
