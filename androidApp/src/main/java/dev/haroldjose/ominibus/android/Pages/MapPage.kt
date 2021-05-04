@@ -41,6 +41,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.core.view.WindowCompat
+import androidx.navigation.NavController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.navigate
+import androidx.navigation.compose.rememberNavController
 import com.google.android.libraries.maps.CameraUpdateFactory
 import com.google.android.libraries.maps.MapView
 import com.google.android.libraries.maps.model.LatLng
@@ -68,6 +73,11 @@ private const val InitialZoom = 5f
 const val MinZoom = 2f
 const val MaxZoom = 20f
 
+object MainDestinations {
+    const val MAP_PAGE = "MAP_PAGE"
+    const val GET_IN_PAGE = "GET_IN_PAGE"
+}
+
 class MapPage : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,7 +88,11 @@ class MapPage : ComponentActivity() {
             OminibusTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    DetailsContent()
+                    val navController = rememberNavController()
+                    NavHost(navController, startDestination = MainDestinations.MAP_PAGE) {
+                        composable(MainDestinations.MAP_PAGE) { MapPageContent(navController) }
+                        composable(MainDestinations.GET_IN_PAGE) { GetInPageContent(navController) }
+                    }
                 }
             }
         }
@@ -87,22 +101,21 @@ class MapPage : ComponentActivity() {
 
 
 @Composable
-fun DetailsContent(
+fun MapPageContent(
+    navController: NavController,
     modifier: Modifier = Modifier
 ) {
+
     Column(modifier = modifier, verticalArrangement = Arrangement.Center) {
+
         Spacer(Modifier.height(32.dp))
-        Text(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "city.nameToDisplay",
-            style = MaterialTheme.typography.h4
-        )
-        Text(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            text = "description",
-            style = MaterialTheme.typography.h6
-        )
+
+        Button(onClick = { navController.navigate(MainDestinations.GET_IN_PAGE) }) {
+            Text(text = "Embarcar")
+        }
+
         Spacer(Modifier.height(16.dp))
+
         CityMapView(latitude.toString(), longitude.toString())
     }
 }
@@ -163,6 +176,6 @@ private fun MapViewContainer(
 
 @Preview(showBackground = true)
 @Composable
-fun DefaultPreview() {
-    DetailsContent()
+fun MapPagePreview() {
+    MapPageContent(rememberNavController())
 }

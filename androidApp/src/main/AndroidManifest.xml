@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.haroldjose.ominibus.android">
-
     <!--
        Android 11 package visibility changes require that apps specify which
        set of other packages on the device that they can access. Since this
        sample uses Google Maps, specifying the Google Maps package name is
        required so that the buttons on the Map toolbar launch the Google Maps app.
-   -->
+    -->
     <queries>
         <package android:name="com.google.android.apps.maps" />
     </queries>
@@ -16,9 +15,15 @@
         android:allowBackup="false"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Pages.GetInPage"
+            android:exported="true"
+            android:label="@string/title_activity_get_in_page"
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="${googleMapsKey}"/>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${googleMapsKey}" />
 
         <activity
             android:name=".Pages.MapPage"

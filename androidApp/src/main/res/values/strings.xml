@@ -1,3 +1,4 @@
 <resources>
     <string name="title_activity_map_page">MapPage</string>
+    <string name="title_activity_get_in_page">GetInPage</string>
 </resources>

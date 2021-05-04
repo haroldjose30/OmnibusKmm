@@ -90,8 +90,9 @@ android {
 dependencies {
     implementation(project(":shared"))
     implementation("com.google.android.material:material:1.3.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.0-alpha06")
-    implementation("androidx.activity:activity-compose:1.3.0-alpha02")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.4.0-alpha01")
+    implementation("androidx.activity:activity-compose:1.3.0-alpha07")
+
 
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
 
@@ -102,6 +103,11 @@ dependencies {
     implementation("androidx.compose.ui:ui:$composeVersion") //Tooling support (Previews, etc.)
     implementation("androidx.compose.ui:ui-tooling:$composeVersion") //Foundation (Border, Background, Box, Image, Scroll, shapes, animations, etc.)
     implementation("androidx.compose.foundation:foundation:$composeVersion")
+
+    //Navigation
+    implementation("androidx.navigation:navigation-compose:1.0.0-alpha10")
+//    implementation("androidx.navigation:navigation-runtime-ktx:2.3.5")
+
 
     //Material Design
     implementation("androidx.compose.material:material:$composeVersion")
