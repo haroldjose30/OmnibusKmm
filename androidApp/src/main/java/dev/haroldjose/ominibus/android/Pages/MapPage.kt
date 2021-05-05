@@ -3,8 +3,6 @@ package dev.haroldjose.ominibus.android.Pages
 
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
 import androidx.compose.ui.tooling.preview.Preview
 import dev.haroldjose.ominibus.android.Components.TestView
 import dev.haroldjose.ominibus.android.Pages.ui.theme.OminibusTheme
@@ -22,11 +20,10 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
@@ -82,8 +79,6 @@ class MapPage : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        WindowCompat.setDecorFitsSystemWindows(window, false)
-
         setContent {
             OminibusTheme {
                 // A surface container using the 'background' color from the theme
@@ -105,19 +100,20 @@ fun MapPageContent(
     navController: NavController,
     modifier: Modifier = Modifier
 ) {
-
-    Column(modifier = modifier, verticalArrangement = Arrangement.Center) {
-
-        Spacer(Modifier.height(32.dp))
-
-        Button(onClick = { navController.navigate(MainDestinations.GET_IN_PAGE) }) {
-            Text(text = "Embarcar")
+    Scaffold(topBar = { TopAppBar(title = {Text("Omnibus")})  },
+        floatingActionButtonPosition = FabPosition.End,
+        floatingActionButton = {
+            FloatingActionButton(
+                onClick = {
+                    navController.navigate(MainDestinations.GET_IN_PAGE)
+                }
+            ) {
+                Icon(Icons.Filled.DirectionsBus,"")
+            }
         }
-
-        Spacer(Modifier.height(16.dp))
-
-        CityMapView(latitude.toString(), longitude.toString())
-    }
+        , content = {
+            CityMapView(latitude.toString(), longitude.toString())
+        })
 }
 
 @Composable
@@ -136,7 +132,6 @@ const val longitude = -73.985708
 
 const val latitude1 = 40.755560578456745
 const val longitude1 = -73.98229739305718
-
 
 @Composable
 private fun MapViewContainer(

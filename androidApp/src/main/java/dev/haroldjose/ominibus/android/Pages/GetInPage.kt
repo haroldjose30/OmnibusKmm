@@ -49,9 +49,11 @@ import dev.haroldjose.ominibus.android.R
 import kotlinx.coroutines.launch
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.*
+import androidx.compose.material.icons.filled.DirectionsBus
 import androidx.compose.material.icons.rounded.Directions
 import androidx.compose.material.icons.rounded.DirectionsWalk
 import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import androidx.navigation.compose.rememberNavController
 
 class GetInPage : ComponentActivity() {
@@ -74,35 +76,40 @@ class GetInPage : ComponentActivity() {
 fun GetInPageContent(navController: NavController) {
     var number by remember { mutableStateOf("") }
     var name by remember { mutableStateOf("") }
-    Column(
-        modifier = Modifier.padding(16.dp)
-    ) {
-        Icon(Icons.Rounded.DirectionsWalk, contentDescription = "")
+    Scaffold(topBar = { TopAppBar(title = {Text("Omnibus")})  },
+        content = {
+            Column(
+                modifier = Modifier.padding(16.dp)
+            ) {
+                Icon(Icons.Rounded.DirectionsWalk, contentDescription = "")
 
-        Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(16.dp))
 
-        Text("Número da linha")
-        TextField(
-            value = number,
-            onValueChange = { number = it },
-            label = { Text("Ex: 022") }
-        )
+                Text("Número da linha")
+                TextField(
+                    value = number,
+                    onValueChange = { number = it },
+                    label = { Text("Ex: 022") }
+                )
 
-        Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(16.dp))
 
-        Text("Descrição da linha")
-        TextField(
-            value = name,
-            onValueChange = { name = it },
-            label = { Text("Ex: nterbairros II") }
-        )
+                Text("Descrição da linha")
+                TextField(
+                    value = name,
+                    onValueChange = { name = it },
+                    label = { Text("Ex: nterbairros II") }
+                )
 
-        Spacer(Modifier.height(16.dp))
+                Spacer(Modifier.height(16.dp))
 
-        Button(onClick = { /*TODO*/ }) {
-            Text("Embarcar")
-        }
-    }
+                Button(onClick = { /*TODO*/ }) {
+                    Text("Embarcar")
+                }
+            }
+        })
+
+
 
 }
 
